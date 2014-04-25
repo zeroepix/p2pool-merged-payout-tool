@@ -44,15 +44,15 @@ Command line options
 
 -d	enable debug mode, printing out stages as they are calculated
 
--hour	show payout based on the last hour of server stats
+-hour   --show payout based on the last hour of server stats
 
--day	show payout based on the last day
+-day    --show payout based on the last day
 
--week	show payout based on the last week
+-week   --show payout based on the last week
 
--month 	default.
+-month 	--default.
 
--year 	show payout based on the last year
+-year   --show payout based on the last year
 
 
 Payout will always take the full current balance of each coin on the server at the time of running,
