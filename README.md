@@ -13,11 +13,7 @@ so the miner can be paid in whichever coin is appropriate for the pool operator 
 Installation Requirements
 -------------------------
 The tool needs bitcoinrpc to run. To install:
-
-git clone https://github.com/jgarzik/python-bitcoinrpc.git
-cd python-bitcoinrpc
-sudo ./setup build
-sudo ./setup install
+git clone https://github.com/jgarzik/python-bitcoinrpc.gitcd python-bitcoinrpcsudo ./setup buildsudo ./setup install
 
 (check the github page above to see other notes if there are any installation problems)
 
