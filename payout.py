@@ -109,7 +109,7 @@ def run(period, debug):
 	total_ixc = 1/float(prices['ixcoin']['price']) * total_value
 	total_i0c = 1/float(prices['i0coin']['price']) * total_value
 	print "\nPayout due (converted into each coin for convenience)"
-	print "Miner\t\t\t\t\tbtc\tdvc\tnmc\tixc\ti0c"
+	print "Miner\t\t\t\t\tbtc\t\tdvc\t\tnmc\t\tixc\t\ti0c"
 	for address, proportion in proportions.iteritems():
 		print "%s\t%.8f\t%.8f\t%.8f\t%.8f\t%.8f" % (address, proportion*total_value, proportion*total_dvc, proportion*total_nmc, proportion*total_ixc, proportion*total_i0c)
 	
