@@ -55,8 +55,8 @@ Command line options
 -year   --show payout based on the last year
 
 
-Payout will always take the full current balance of each coin on the server at the time of running,
-so after the tool is run, and miners are paid, the server operator should remove all coins from the 
-default addresses, otherwise they will be included again next time.
+Payout will always take the full current balance of each coin (excluding bitcoin) on the server at the time of running,
+so after the tool is run, and miners are paid, the server operator should remove all alt-coins from the 
+default wallet, otherwise they will be included again next time.
 
 coinzen forum thread: http://coinzen.org/index.php/topic,859.0.html
