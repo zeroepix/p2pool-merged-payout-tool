@@ -67,6 +67,9 @@ def run(period, debug):
 
 	with open('config', 'r') as f:
 		config = json.load(f)
+	
+	with open('balances', 'r') as f:
+		balances = json.load(f)
 
 	# once we've read in the file, we need to:
 	# load each with its own access point
@@ -108,10 +111,21 @@ def run(period, debug):
 	total_nmc = 1/float(prices['namecoin']['price']) * total_value
 	total_ixc = 1/float(prices['ixcoin']['price']) * total_value
 	total_i0c = 1/float(prices['i0coin']['price']) * total_value
-	print "\nPayout due (converted into each coin for convenience)"
+	print "\nPayout due if paying out in only one particular coin (only pay one column)"
 	print "Miner\t\t\t\t\tbtc\t\tdvc\t\tnmc\t\tixc\t\ti0c"
 	for address, proportion in proportions.iteritems():
 		print "%s\t%.8f\t%.8f\t%.8f\t%.8f\t%.8f" % (address, proportion*total_value, proportion*total_dvc, proportion*total_nmc, proportion*total_ixc, proportion*total_i0c)
+
+	# next, work out how much each miner should get of each coin, if they were sent in their native form (no market valuation)
+	# we already have miner proportions in proportions[address], but we need to know how much to withold due to amounts already owing
+	available_dvc = float(coins['devcoin']['balance'])
+	available_nmc = float(coins['namecoin']['balance'])
+	available_ixc = float(coins['ixcoin']['balance'])
+	available_i0c = float(coins['i0coin']['balance'])
+	print "\n\nPayout due if paying out coins natively (whatever is on the server, pay all columns)"
+	print "Miner\t\t\t\t\tPercentage of\tdvc\t\tnmc\t\tixc\t\ti0c\naddress\t\t\t\t\thash_power\n"
+	for address, proportion in proportions.iteritems():
+		print "%s\t%.3f%%\t\t%.8f\t%.8f\t%.8f\t%.8f" % (address, proportions[address]*100, proportion*available_dvc, proportion*available_nmc, proportion*available_ixc, proportion*available_i0c)
 	
 if __name__ == "__main__":
 	debug = False
